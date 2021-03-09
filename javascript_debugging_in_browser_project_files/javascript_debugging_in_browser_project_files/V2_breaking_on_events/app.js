@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(isChecked) {
       for (let i = 0; i < lis.length; i += 1) {
         let li = lis[i];
-        if (li.className = 'responded') {
+        if (li.className === 'responded') {
           li.style.display = '';
         } else {
           li.style.display = 'none';
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const li = document.createElement('li');
-    appendToLI('span', 'textContent', 'text');
+    appendToLI('span', 'textContent', text);
     appendToLI('label', 'textContent', 'Confirmed')
       .appendChild(createElement('input', 'type', 'checkbox'));
     appendToLI('button', 'textContent', 'edit');
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ul.addEventListener('change', (e) => {
     const checkbox = e.target;
-    const listItem = checkbox.parentNode;
+    const listItem = checkbox.parentNode.parentNode;
     const checked = checkbox.checked;
 
     if (checked) {
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const ul = li.parentNode;
       const action = button.textContent;
       const nameActions = {
-        remove: (li) => {
+        remove: () => {
           ul.removeChild(li);
         },
         edit: () => {
